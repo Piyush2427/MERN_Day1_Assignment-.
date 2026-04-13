@@ -15,9 +15,7 @@ function ProfileCard({ devName }) {
 
       <p>Status: {status}</p>
 
-      <button onClick={() => setStatus(status === "Available" ? "Busy" : "Available")}>
-        Toggle Status
-      </button>
+     
 
       <h4>Skills:</h4>
       <ul>
