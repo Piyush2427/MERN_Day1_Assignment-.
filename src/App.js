@@ -1,25 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
+import './practice.js';
+import { useState } from 'react';
+function ProfileCard({ devName }) {
+  const [status, setStatus] = useState("Available");
 
-function App() {
+  const A= ["React", "Node", "MongoDB"];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ border: "1px solid black", padding: "20px" }}>
+      <h2>👨‍💻 Developer Profile</h2>
+
+      <h3>Name: {devName}</h3>
+
+      <p>Status: {status}</p>
+
+      <button onClick={() => setStatus(status === "Available" ? "Busy" : "Available")}>
+        Toggle Status
+      </button>
+
+      <h4>Skills:</h4>
+      <ul>
+        {A.map((skill, index) => (
+          <li key={index}>{skill}</li>
+        ))}
+      </ul>
     </div>
   );
 }
+
+
+function App() {
+  return (
+    <div>
+      <ProfileCard devName="Piyush Pandey" />
+    </div>
+  );
+}
+
 
 export default App;
